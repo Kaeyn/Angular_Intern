@@ -1,0 +1,27 @@
+<div class="sidebar-container">
+    <div class="categories">
+        <div class="category-block" *ngFor="let category of categories" >
+            <div class="category" (click)="selectCategory(category.code)" [ngStyle]="{'color' : selectedCategory === category.code? '#5CB800' : '#C0C7CC', 'background-color' : selectedCategory === category.code ? '#1A2334' : ''}">
+                <div class="status-bar" [ngStyle]="{'display' : selectedCategory === category.code ? 'block' : 'none'}"></div>
+                <div class="icon-block">
+                    <i class="{{category.icon}}" ></i>
+                </div>
+                <div class="category-name-block">{{category.name| uppercase}}</div>
+                <div class="arrow-block">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div> 
+            
+            <div *ngIf="expandedCategory.includes(category.code)">
+                <div class="sub-category" *ngFor="let subcategory of category.subCategory" (click) ="selectSubCategory(subcategory.categoryCode, subcategory.code, subcategory.path, category.path)" [ngStyle]="{'background-color' : selectedSubCategory === subcategory.code ? '#1A2334' : ''}">
+                    <div class="sub-status-bar" [ngStyle]="{'display' : selectedSubCategory === subcategory.code ? 'block' : 'none'}"></div>
+                    <div class="sub-icon-block">
+                        <i class="{{subcategory.icon}}"></i>
+                    </div>
+                    <div class="subcategory-name-block">{{subcategory.name}}</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

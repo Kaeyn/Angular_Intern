@@ -1,0 +1,96 @@
+.sidebar-container {
+    width: 100%;
+    height: 100%;
+    background-color: #5A6276;
+
+    & .categories {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+
+        & .category-block {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            color: #C0C7CC;
+            font-weight: 700;  
+
+            & .category {
+                display: flex;
+                width: 100%;
+                height: 50px;
+                align-items: center;
+                cursor: pointer;
+                color: #C0C7CC;
+                           
+                &:hover {
+                    background-color: #1A2334;
+                }
+
+                & .status-bar {
+                    width: 5px;
+                    height: 100%;
+                    background-color: #5CB800;
+                }
+
+                & .icon-block {
+                    display: flex;
+                    height: 100%;
+                    width: 30px;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                & .category-name-block{
+                    width: calc(100% - 65px);              
+                    text-wrap: nowrap;
+                    font-size: 15px;
+                }
+
+                & .arrow-block {
+                    height: 100%;
+                    width: 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            & .sub-category{
+                display: flex;
+                width: 100%;
+                height: 50px;
+                align-items: center;
+                cursor: pointer;
+                
+                &:hover {
+                    background-color: #1A2334;
+                }
+
+                & .sub-status-bar {
+                    width: 5px;
+                    height: 100%;
+                    background-color: #FFFFFF;
+                }
+
+                & .sub-icon-block{
+                    display: flex;
+                    width: 30px;
+                    height: 100%;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                & .subcategory-name-block{
+                    width: calc(100% - 35px);              
+                    text-wrap: nowrap;
+                    font-size: 16px;
+                    margin-left: 15px;
+                }
+            }
+        }
+
+    }
+
+}

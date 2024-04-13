@@ -1,0 +1,39 @@
+<div class="header-container">
+    <div class="logo-container">
+        <img src="../../assets/img/hachilogo.svg" alt="" class="logo-img">
+    </div>
+    <div class="module-container">
+        <div class="module-block" *ngFor="let module of modules; index as i">
+            <div class="module">
+                <div class="relative-block">
+                    <div class="module-name" (click)="selectModule(module.code)" routerLink="/{{module.path}}" [ngStyle]="{'color' : selectedModule === module.code ? '#008000' : '#BBBBBB'}">
+                        {{module.name| uppercase}}                          
+                    </div>   
+                    <div class="active-bottom-bar" [ngStyle]="{'display' : selectedModule === module.code ? 'block' : 'none'}"></div>
+                </div>
+                                     
+            </div>
+            <div class="seperate-bar" *ngIf="i != modules.length - 1"></div> 
+                 
+        </div>
+    </div>
+    <div class="module-func-container">
+        <div class="func-block"><i class="fa-solid fa-magnifying-glass" [ngStyle]="{'font-size': '18px'}" ></i></div>
+        <div class="func-block">
+            <div class="notify-block">
+                <i class="fa-regular fa-bell" [ngStyle]="{'font-size': '18px'}"></i>
+                <div class="noti-count">
+                    15
+                </div>
+            </div>
+            
+        </div>
+        <div class="func-block" style="margin-right: 10px;">
+            <div class="profile-img-status">
+                <img src="../../assets/img/Duck_Face.png" alt="" class="profile-img">
+                <div class="status-dot"></div>
+            </div>
+            
+        </div>
+    </div>
+</div>
