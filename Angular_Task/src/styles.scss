@@ -1,9 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Mulish';
+    src: url('../node_modules/@fontsource/mulish/files/mulish-cyrillic-400-normal.woff') format('truetype');
+    /* Add additional src declarations for other font weights/styles if needed */
+}
+
 *{
     padding: 0;
     margin: 0;
+    
 }
 
 body{
     background-color: #EDEFF3;
+    font-family: 'Mulish', sans-serif;
 }

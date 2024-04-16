@@ -12,6 +12,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { PHrComponent } from './p-hr/p-hr.component';
 import { PHrQuestionBankComponent } from './p-hr/p-hr-question-bank/p-hr-question-bank.component';
 import { PHrCompetenceBankComponent } from './p-hr/p-hr-competence-bank/p-hr-competence-bank.component';
+import { StatusInfoPipe } from './p-hr/p-hr-question-bank/p-hr-pipes/StatusInfoPipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { PHrCompetenceBankComponent } from './p-hr/p-hr-competence-bank/p-hr-com
     PHrComponent,
     PHrQuestionBankComponent,
     PHrCompetenceBankComponent,
+    StatusInfoPipe
   ],
   imports: [
     BrowserModule,

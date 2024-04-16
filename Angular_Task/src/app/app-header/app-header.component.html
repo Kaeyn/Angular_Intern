@@ -6,10 +6,10 @@
         <div class="module-block" *ngFor="let module of modules; index as i">
             <div class="module">
                 <div class="relative-block">
-                    <div class="module-name" (click)="selectModule(module.code)" routerLink="/{{module.path}}" [ngStyle]="{'color' : selectedModule === module.code ? '#008000' : '#BBBBBB'}">
+                    <div class="module-name" title="{{module.name}}" (click)="selectModule(module.code)" routerLink="/{{module.path}}" [ngClass]="{'active' : selectedModule === module.code}">
                         {{module.name| uppercase}}                          
                     </div>   
-                    <div class="active-bottom-bar" [ngStyle]="{'display' : selectedModule === module.code ? 'block' : 'none'}"></div>
+                    <div class="active-bottom-bar" [ngClass]="{'active' : selectedModule === module.code}"></div>
                 </div>
                                      
             </div>
@@ -18,11 +18,11 @@
         </div>
     </div>
     <div class="module-func-container">
-        <div class="func-block"><i class="fa-solid fa-magnifying-glass" [ngStyle]="{'font-size': '18px'}" ></i></div>
+        <div class="func-block"><i class="fa-solid fa-magnifying-glass func-icon" title="Search"></i></div>
         <div class="func-block">
             <div class="notify-block">
-                <i class="fa-regular fa-bell" [ngStyle]="{'font-size': '18px'}"></i>
-                <div class="noti-count">
+                <i class="fa-regular fa-bell  func-icon" title="Notify"></i>
+                <div class="noti-count" title="15 Noti">
                     15
                 </div>
             </div>
@@ -30,8 +30,8 @@
         </div>
         <div class="func-block" style="margin-right: 10px;">
             <div class="profile-img-status">
-                <img src="../../assets/img/Duck_Face.png" alt="" class="profile-img">
-                <div class="status-dot"></div>
+                <img src="../../assets/img/Duck_Face.png" alt="" class="profile-img" title="Ur Duck Face">
+                <div class="status-dot" title="Online"></div>
             </div>
             
         </div>

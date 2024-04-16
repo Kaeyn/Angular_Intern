@@ -1,20 +1,13 @@
 <div class="question-bank-container">
     <div class="status_filter-func-container">
         <div class="status_filter-container">
-            <div class="status-block">
-                <div class="status-text">Đang soạn thảo</div>
+            <div class="status-block" *ngFor="let status of statusList" (click) = "toggleCheckbox(status)" [ngClass]="{'active' : status.checked === true}">
+                <div class="status-text">{{status.name}}</div>
                 <div class="status-checkbox-block">
-                    <input type="checkbox" name="" id="checkboxid" class="status-checkbox">
-                    <label for='checkboxid' class="status-checkbox-label"></label>
+                    <input type="checkbox" name="" id="statusCheckbox{{status.id}}" class="status-checkbox" [ngModel]="status.checked" (change)="toggleCheckbox(status)">
+                    <label for='statusCheckbox{{status.id}}' class="status-checkbox-label"></label>
                 </div>
-            </div>
-            <div class="status-block">
-                <div class="status-text">Đang soạn thảo</div>
-                <div class="status-checkbox-block">
-                    <input type="checkbox" name="" id="checkboxid" class="status-checkbox">
-                    <label for='checkboxid' class="status-checkbox-label"></label>
-                </div>
-            </div>        
+            </div>         
         </div>
         <div class="func-container">
             <div class="func-block">
@@ -36,13 +29,114 @@
             </div>
         </div>
     </div>
-    <div class="search-container">
-
+    <div class="search-reset-container">
+        <div class="reset-search-block">
+            <div class="reset-container">
+                <div class="reset-icon-block">
+                    <div class="icon-block">
+                        <i class="fa-solid fa-filter reset-icon"></i>
+                    </div>          
+                    <div class="icon-text">LỌC DỮ LIỆU</div>
+                </div>
+                <div class="reset-text-block">
+                    <div class="icon-block"></div>
+                    <div class="reset-text" title="Reset bộ lọc" (click)="resetFilter()">Reset bộ lọc</div>
+                </div>
+            </div>
+            <div class="search-container">
+                <div class="search-text">Tìm kiếm</div>
+                <div class="search-block">
+                    <div class="search-bar">
+                        <div class="search-icon-block">
+                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        </div>
+                        <input type="text" name="" id="" class="search-input" placeholder="Tìm theo mã và câu hỏi" title="Tìm theo mã và câu hỏi" [(ngModel)] ="searchTerms" #searchBox (keyup.enter)="searchData()">
+                    </div>
+                    <div class="search-button">
+                        <div class="button-block" title="Tìm" (click)="searchData()">
+                            <div class="search-icon-block">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                            <div class="icon-text">Tìm</div>
+                        </div>                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="white-space-block"></div>
     </div>
     <div class="datalist-container">
-
+        <div class="data-category">
+            <div class="checkbox-block">
+                <input type="checkbox" name="" id="checkboxparent" class="status-checkbox" [checked]="parentCheckBoxChecked" (change)="handleCheckAllCheckbox()">
+                <label for='checkboxparent' class="status-checkbox-label"></label>   
+            </div>
+            <div class="question-block">
+                <div>Câu hỏi</div>
+            </div>
+            <div class="group-block">
+                <div class="group-text">Phân nhóm</div>
+            </div>
+            <div class="timelimit-block">
+                <div>Thời gian làm</div>
+            </div>
+            <div class="status-block">
+                <div class="status-text">Tình trạng</div>
+            </div>
+            <div class="tooltip-button-block"></div>
+        </div>
+        <div class="datalist">     
+            <div class="data-item" *ngFor="let question of filteredQuestionList" [ngClass]="{'active':questionCheckedList.includes(question)}">
+                <div class="checkbox-block">
+                    <input type="checkbox" name="" id="questionCheckbox{{question.code}}" class="status-checkbox" [checked]="questionCheckedList.includes(question)" (change)="addToCheckedList(question)">
+                    <label for='questionCheckbox{{question.code}}' class="status-checkbox-label"></label>   
+                </div>
+                <div class="question-block">
+                    <div class="question-text-block">
+                        <div class="question-text">{{question.stringques}}</div>
+                    </div>     
+                    <div class="id-type-question-block">
+                        <div class="id-question">{{question.id}}</div>
+                        <div class="seperate-bar"></div>
+                        <div class="type-question">Loại câu hỏi: {{question.type}}</div>
+                    </div>
+                </div>
+                <div class="group-block">
+                    <div class="group-text">{{formatGroupName(question.group)}}</div>
+                </div>
+                <div class="timelimit-block">
+                    <div>{{question.timelimit}}s</div>
+                </div>
+                <div class="status-block">
+                    <div class="status-text" [ngStyle]="{'color' : (question.status | statusInfo).color}">{{(question.status | statusInfo).name}}</div>
+                </div>
+                <div class="tooltip-button-block">
+                    <div class="tooltip-button" [ngClass]="{'active' : question.code === showQuestionToolTip}" (click)="showToolTip(question)">...</div>
+                    <div class="tooltip-list" *ngIf="question.code === showQuestionToolTip">
+                        <div class="tooltip-item" *ngFor="let func of toolTipFunc" (click) = "handleAction(func.id, question)">
+                            <div class="tooltip-icon"><i class="{{func.icon}}"></i></div>
+                            <div class="tooltip-text">{{func.text}}</div>
+                        </div>                 
+                    </div>
+                </div>   
+            </div>
+                          
+        </div>
     </div>
     <div class="pagination-container">
+        <div class="page-limit-block">
+            <div class="limit-text">Hiển thị mỗi trang</div>
+            <div class="limit-block" (click)="handleExpandLimitSelector()" [ngClass]="{'active' : isExpandLimitSelector === true}">
+                <div class="limit-value">{{dataLimit}}</div>
+                <div class="limit-icon"><i class="fa-solid fa-chevron-up limit-icon" [ngClass]="{'active' : isExpandLimitSelector === true}"></i></div>             
+            </div>
+            <div class="limit-list" [ngClass]="{'active' : isExpandLimitSelector  === true}">
+                <div class="limit-available-value" *ngFor="let limit of dataLimitList" (click)="handleSelectDataLimit(limit)">{{limit}}</div>
+            </div>
+        </div>
 
+        <div class="pagination-block">
+            
+        </div>
     </div>
 </div>
