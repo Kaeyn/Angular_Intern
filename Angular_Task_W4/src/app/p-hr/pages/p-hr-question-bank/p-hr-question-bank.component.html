@@ -1,143 +1,296 @@
 <div class="question-bank-container">
-    <div class="status_filter-func-container">
-        <div class="status_filter-container">
-            <div class="status-block" *ngFor="let status of statusList" (click) = "toggleCheckbox(status)" [ngClass]="{'active' : status.checked === true}">
-                <div class="status-text">{{status.name}}</div>
-                <div class="status-checkbox-block">
-                    <input type="checkbox" name="" id="statusCheckbox{{status.id}}" class="status-checkbox" [ngModel]="status.checked" (change)="toggleCheckbox(status)">
-                    <label for='statusCheckbox{{status.id}}' class="status-checkbox-label"></label>
-                </div>
-            </div>         
-        </div>
-        <div class="func-container">
-            <div class="func-block">
-                <div class="func-icon-block">
-                    <i class="fa-solid fa-upload"></i>
-                </div>
-            </div>
-            <div class="func-block">
-                <div class="func-icon-block">
-                    <i class="fa-solid fa-download"></i>
-                </div>
-                <div class="func-text">Template</div>
-            </div>
-            <div class="func-block addnew-block">
-                <div class="func-icon-block">
-                    <i class="fa-solid fa-plus"></i>
-                </div>
-                <div class="func-text">THÊM MỚI</div>
-            </div>
-        </div>
-    </div>
-    <div class="search-reset-container">
-        <div class="reset-search-block">
-            <div class="reset-container">
-                <div class="reset-icon-block">
-                    <div class="icon-block">
-                        <i class="fa-solid fa-filter reset-icon"></i>
-                    </div>          
-                    <div class="icon-text">LỌC DỮ LIỆU</div>
-                </div>
-                <div class="reset-text-block">
-                    <div class="icon-block"></div>
-                    <div class="reset-text" title="Reset bộ lọc" (click)="resetFilter()">Reset bộ lọc</div>
-                </div>
-            </div>
-            <div class="search-container">
-                <div class="search-text">Tìm kiếm</div>
-                <div class="search-block">
-                    <div class="search-bar">
-                        <div class="search-icon-block">
-                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    <mat-sidenav-container class="side-nav-container" [hasBackdrop]="true" >
+        <mat-sidenav-content class="mat-content" >
+            <div class="status_filter-func-container"
+                [ngClass]="{'disable' : questionCheckedList.length > 0 || showConfirmPopup == true}"
+                (click)="handleCloseToolTip()">
+                <div class="status_filter-container">
+                    <div class="status-block" *ngFor="let status of statusList" (click)="toggleCheckbox(status)"
+                        [ngClass]="{'active' : status.checked === true, 'hidden' : status.id == 4}">
+                        <div class="status-text">{{status.name}}</div>
+                        <div class="status-checkbox-block">
+                            <input type="checkbox" name="" id="statusCheckbox{{status.id}}" class="status-checkbox"
+                                [ngModel]="status.checked" (change)="toggleCheckbox(status)">
+                            <label for='statusCheckbox{{status. id}}' class="status-checkbox-label"></label>
                         </div>
-                        <input type="text" name="" id="" class="search-input" placeholder="Tìm theo mã và câu hỏi" title="Tìm theo mã và câu hỏi" [(ngModel)] ="searchTerms" #searchBox (keyup.enter)="searchData()">
                     </div>
-                    <div class="search-button">
-                        <div class="button-block" title="Tìm" (click)="searchData()">
-                            <div class="search-icon-block">
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="func-container">
+                    <div class="func-block">
+                        <div class="func-icon-block">
+                            <i class="fa-solid fa-upload"></i>
+                        </div>
+                    </div>
+                    <div class="func-block">
+                        <div class="func-icon-block">
+                            <i class="fa-solid fa-download"></i>
+                        </div>
+                        <div class="func-text">Template</div>
+                    </div>
+                    <div class="func-block addnew-block" (click)="addNewQuestion(sidenav)">
+                        <div class="func-icon-block">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="func-text">THÊM MỚI</div>
+                    </div>
+                </div>
+            </div>
+            <div class="search-reset-container"
+                [ngClass]="{'disable' : questionCheckedList.length > 0 || showConfirmPopup == true}"
+                (click)="handleCloseToolTip()">
+                <div class="reset-search-block">
+                    <div class="reset-container">
+                        <div class="reset-icon-block">
+                            <div class="icon-block">
+                                <i class="fa-solid fa-filter reset-icon"></i>
                             </div>
-                            <div class="icon-text">Tìm</div>
-                        </div>                       
+                            <div class="icon-text">LỌC DỮ LIỆU</div>
+                        </div>
+                        <div class="reset-text-block">
+                            <div class="icon-block"></div>
+                            <div class="reset-text" title="Reset bộ lọc" (click)="resetFilter()">Reset bộ lọc</div>
+                        </div>
+                    </div>
+                    <div class="search-container">
+                        <div class="search-text">Tìm kiếm</div>
+                        <div class="search-block">
+                            <div class="search-bar">
+                                <div class="search-icon-block">
+                                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                                </div>
+                                <input type="text" name="" id="" class="search-input"
+                                    placeholder="Tìm theo mã và câu hỏi" title="Tìm theo mã và câu hỏi"
+                                    [(ngModel)]="searchTerms" #searchBox (keyup.enter)="searchData()">
+                            </div>
+                            <div class="search-button">
+                                <div class="button-block" title="Tìm" (click)="searchData()">
+                                    <div class="search-icon-block">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </div>
+                                    <div class="icon-text">Tìm</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="white-space-block"></div>
             </div>
-        </div>
-        <div class="white-space-block"></div>
-    </div>
-    <div class="datalist-container">
-        <div class="data-category">
-            <div class="checkbox-block">
-                <input type="checkbox" name="" id="checkboxparent" class="status-checkbox" [checked]="parentCheckBoxChecked" (change)="handleCheckAllCheckbox()">
-                <label for='checkboxparent' class="status-checkbox-label"></label>   
-            </div>
-            <div class="question-block">
-                <div>Câu hỏi</div>
-            </div>
-            <div class="group-block">
-                <div class="group-text">Phân nhóm</div>
-            </div>
-            <div class="timelimit-block">
-                <div>Thời gian làm</div>
-            </div>
-            <div class="status-block">
-                <div class="status-text">Tình trạng</div>
-            </div>
-            <div class="tooltip-button-block"></div>
-        </div>
-        <div class="datalist">     
-            <div class="loading" *ngIf="isLoading"><img src="../../../assets/img/loading.gif" alt="" ></div>
-            <div class="data-item" *ngFor="let question of filteredQuestionList" [ngClass]="{'active':questionCheckedList.includes(question)}">
-                <div class="checkbox-block">
-                    <input type="checkbox" name="" id="questionCheckbox{{question.code}}" class="status-checkbox" [checked]="questionCheckedList.includes(question)" (change)="addToCheckedList(question)">
-                    <label for='questionCheckbox{{question.code}}' class="status-checkbox-label"></label>   
+            <div class="datalist-container" [ngClass]="{'disable' : showConfirmPopup == true}">
+                <div class="data-category" (click)="handleCloseToolTip()">
+                    <div class="checkbox-block">
+                        <input type="checkbox" name="" id="checkboxparent" class="status-checkbox"
+                            [checked]="parentCheckBoxChecked" (change)="handleCheckAllCheckbox()">
+                        <label for='checkboxparent' class="status-checkbox-label"></label>
+                    </div>
+                    <div class="question-block">
+                        <div>Câu hỏi</div>
+                    </div>
+                    <div class="group-block">
+                        <div class="group-text">Phân nhóm</div>
+                    </div>
+                    <div class="timelimit-block">
+                        <div>Thời gian làm</div>
+                    </div>
+                    <div class="status-block">
+                        <div class="status-text">Tình trạng</div>
+                    </div>
+                    <div class="tooltip-button-block"></div>
                 </div>
-                <div class="question-block">
-                    <div class="question-text-block">
-                        <div class="question-text">{{question.stringques}}</div>
-                    </div>     
-                    <div class="id-type-question-block">
-                        <div class="id-question">{{question.id}}</div>
-                        <div class="seperate-bar"></div>
-                        <div class="type-question">Loại câu hỏi: {{question.type}}</div>
+                <div class="datalist">
+                    <div *ngIf="filteredQuestionList.length <= 0" [ngStyle]="{'width': '100%', 'height': '100%','display' : 'flex','align-items': 'center' ,'justify-content': 'center', 'font-size': '20px'}">No result found</div>
+                    <div class="data-item" *ngFor="let question of filteredQuestionList"
+                        [ngClass]="{'active':questionCheckedList.includes(question)}">
+                        
+                        <div class="checkbox-block" (click)="handleCloseToolTip()">
+                            <input type="checkbox" name="" id="questionCheckbox{{question.code}}"
+                                class="status-checkbox" [checked]="questionCheckedList.includes(question)"
+                                (change)="addToCheckedList(question)">
+                            <label for='questionCheckbox{{question.code}}' class="status-checkbox-label"></label>
+                        </div>
+                        <div class="question-block" (click)="handleCloseToolTip()">
+                            <div class="question-text-block">
+                                <div class="question-text">{{question.stringques}}</div>
+                            </div>
+                            <div class="id-type-question-block">
+                                <div class="id-question">{{question.id}}</div>
+                                <div class="seperate-bar"></div>
+                                <div class="type-question">Loại câu hỏi: {{formatTypeQuestion(question.type)}}</div>
+                            </div>
+                        </div>
+                        <div class="group-block" (click)="handleCloseToolTip()">
+                            <div class="group-text">{{formatGroupName(question.group)}}</div>
+                        </div>
+                        <div class="timelimit-block" (click)="handleCloseToolTip()">
+                            <div>{{question.timelimit}}s</div>
+                        </div>
+                        <div class="status-block" (click)="handleCloseToolTip()">
+                            <div class="status-text" [ngStyle]="{'color' : (question.status | statusInfo).color}">
+                                {{(question.status | statusInfo).name}}</div>
+                        </div>
+                        <div class="tooltip-button-block">
+                            <div class="tooltip-button" [ngClass]="{'active' : question.code === showQuestionToolTip}"
+                                (click)="showToolTip(question)">...</div>
+                            <div class="tooltip-list" *ngIf="question.code === showQuestionToolTip">
+                                <div class="tooltip-item" *ngFor="let func of toolTipFunc"
+                                    (click)="handleAction(func.id, question,sidenav)">
+                                    <div class="tooltip-icon"><i class="{{func.icon}}"></i></div>
+                                    <div class="tooltip-text">{{func.text}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="multi-tool-popup-container" *ngIf="questionCheckedList.length > 0">
+                        <div class="checked-item-count-block multi-tool-block">
+                            <div class="checked-value">{{questionCheckedList.length}}</div>
+                            <div class="checked-text">Đã chọn</div>
+                        </div>
+                        <div class="multi-tool-block" *ngFor="let func of multiToolTipFunc"
+                            (click)="handleMultiToolAction(func.id)">
+                            <div class="func-block">
+                                <div class="func-icon">
+                                    <i class="{{func.icon}}"></i>
+                                </div>
+                                <div class="func-text">{{func.text}}</div>
+                            </div>
+                        </div>
+                        <div class="close-multi-tool multi-tool-block" (click)="handleCloseMultiTool()">X</div>
                     </div>
                 </div>
-                <div class="group-block">
-                    <div class="group-text">{{formatGroupName(question.group)}}</div>
-                </div>
-                <div class="timelimit-block">
-                    <div>{{question.timelimit}}s</div>
-                </div>
-                <div class="status-block">
-                    <div class="status-text" [ngStyle]="{'color' : (question.status | statusInfo).color}">{{(question.status | statusInfo).name}}</div>
-                </div>
-                <div class="tooltip-button-block">
-                    <div class="tooltip-button" [ngClass]="{'active' : question.code === showQuestionToolTip}" (click)="showToolTip(question)">...</div>
-                    <div class="tooltip-list" *ngIf="question.code === showQuestionToolTip">
-                        <div class="tooltip-item" *ngFor="let func of toolTipFunc" (click) = "handleAction(func.id, question)">
-                            <div class="tooltip-icon"><i class="{{func.icon}}"></i></div>
-                            <div class="tooltip-text">{{func.text}}</div>
-                        </div>                 
+                <div class="loading" *ngIf="isLoading"><img src="../../../assets/img/loading.gif" alt=""
+                        class="loading-img"></div>
+            </div>
+            <div class="pagination-container" [ngClass]="{'disable' : showConfirmPopup == true}"
+                (click)="handleCloseToolTip()">
+                <div class="page-limit-block">
+                    <div class="limit-text">Hiển thị mỗi trang</div>
+                    <div class="limit-block" (click)="handleExpandLimitSelector()"
+                        [ngClass]="{'active' : isExpandLimitSelector === true}">
+                        <div class="limit-value">{{dataLimit}}</div>
+                        <div class="limit-icon"><i class="fa-solid fa-chevron-up limit-icon"
+                                [ngClass]="{'active' : isExpandLimitSelector === true}"></i></div>
                     </div>
-                </div>   
-            </div>
-                          
-        </div>
-    </div>
-    <div class="pagination-container">
-        <div class="page-limit-block">
-            <div class="limit-text">Hiển thị mỗi trang</div>
-            <div class="limit-block" (click)="handleExpandLimitSelector()" [ngClass]="{'active' : isExpandLimitSelector === true}">
-                <div class="limit-value">{{dataLimit}}</div>
-                <div class="limit-icon"><i class="fa-solid fa-chevron-up limit-icon" [ngClass]="{'active' : isExpandLimitSelector === true}"></i></div>             
-            </div>
-            <div class="limit-list" [ngClass]="{'active' : isExpandLimitSelector  === true}">
-                <div class="limit-available-value" *ngFor="let limit of dataLimitList" (click)="handleSelectDataLimit(limit)">{{limit}}</div>
-            </div>
-        </div>
+                    <div class="limit-list" [ngClass]="{'active' : isExpandLimitSelector  === true}">
+                        <div class="limit-available-value" *ngFor="let limit of dataLimitList"
+                            (click)="handleSelectDataLimit(limit)">{{limit}}</div>
+                    </div>
+                </div>
 
-        <div class="pagination-block">
-            
-        </div>
-    </div>
+                <div class="pagination-block">
+                    <div class="goToHead-Last-button" (click)="goToPage(1)" [ngClass]="{'active' : currentPage > 1}">Đầu
+                    </div>
+                    <div class="goToPrev-First-button" (click)="prevPage()" [ngClass]="{'active' : currentPage > 1}">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </div>
+                    <div class="number-button"(click)="handleLeftEllipsisClick()" *ngIf="currentPage > 3">
+                        <div class="number-text" >...</div>
+                    </div>
+                    <div class="number-button" *ngFor="let pageNum of getPageNumbers()"
+                        [ngClass]="{'active' : currentPage == pageNum}"
+                         (click)="goToPage(pageNum)">
+                        <div class="number-text" >{{pageNum}}</div>
+                    </div>
+                    <div class="number-button"(click)="handleRightEllipsisClick()" *ngIf="(totalPages - currentPage > 2) || (totalPages - currentPage === 2 && totalPages % 3 !== 0)">
+                        <div class="number-text" >...</div>
+                    </div>
+                    <div class="goToPrev-First-button" (click)="nextPage()"
+                        [ngClass]="{'active' : currentPage < totalPages}">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                    <div class="goToHead-Last-button" (click)="goToPage(totalPages)"
+                        [ngClass]="{'active' : currentPage < totalPages}">Cuối</div>
+                </div>
+            </div>
+            <div class="confirmation-popup-container" *ngIf="showConfirmPopup == true">
+                <div class="disable-background-mask"></div>
+                <div class="popup-block">
+                    <div class="title-block">
+                        <div class="title-icon-block">
+                            <i class="fa-solid fa-triangle-exclamation title-icon"></i>
+                        </div>
+                        <div class="title-text">XOÁ CÂU HỎI</div>
+                    </div>
+                    <div class="information-block">
+                        <div class="question-to-delete-container">
+                            <div class="question-confirm">Bạn có chắc muốn xoá phân nhóm</div>
+                            <div class="question-to-delete">Hệ thống cửa hàng Hachi</div>
+                            <div class="question-to-delete">Hệ thống cửa hàng Hachi</div>
+                        </div>
+                        <div class="warning-block">Đơn vị bị xóa sẽ <span style="color: #FD7676;">KHÔNG</span> thể khôi
+                            phục lại.</div>
+                    </div>
+                    <div class="button-block">
+                        <div class="abort-button" (click)="abortDelete()">KHÔNG XOÁ</div>
+                        <div class="confirm-button" (click)="confirmDelete()">
+                            <div class="confirm-icon-block">
+                                <i class="fa-solid fa-trash confirm-icon"></i>
+                            </div>
+                            <div class="confirm-text">XOÁ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-sidenav-content>
+        <mat-sidenav class="side-nav" #sidenav mode="over" position="end" [opened]="true" [disableClose]="true">
+            <div class="nav-title-container">
+                <div class="nav-title-icon-block"><i class="fa-solid fa-diagram-project nav-title-icon"></i></div>
+                <div class="nav-title-text">NGÂN HÀNG CÂU HỎI</div>
+            </div> 
+
+            <form class="nav-form-container" [formGroup] = "questionForm" (ngSubmit)="onSubmit(sidenav)" #form>
+                <div class="question-input-dropdown-block">
+                    <div class="question-input-text">Tên câu hỏi</div>
+                    <input class="question-input" type="text" formControlName="stringques" [autofocus]="true">
+                </div>
+                <div class="question-id-group-block">
+                    <div class="seperate-block">
+                        <div class="question-input-text">Mã câu hỏi</div>
+                        <input class="question-input" type="text" formControlName="id">
+                    </div>
+                    <div class="seperate-block">
+                        <div class="question-input-text">Phân nhóm</div>
+                        <select class="question-input select-box" type="text" formControlName="group" (change)="selectionChange()">
+                            <option [ngValue]="-1" [disabled]="true">-- Chọn --</option>
+                            <option  [ngValue]="group.id" *ngFor="let group of questionGroup">{{group.name}}</option>
+                        </select>
+                    </div>
+                   
+                </div>
+                <div class="question-input-dropdown-block">
+                    <div class="question-input-text">Loại câu hỏi</div>
+                    <select class="question-input select-box" type="text" formControlName="type" (change)="selectionChange()">
+                        <option [ngValue]="-1" [disabled]="true">-- Chọn --</option>
+                        <option [ngValue]="type.id" *ngFor="let type of questionType">{{type.type}}</option>
+                    </select>
+                </div>
+                <div class="question-input-dropdown-block">
+                    <div class="question-input-text">Cách tính điểm </div>
+                    <select class="question-input select-box" type="text" formControlName="scoring">
+                        <option [ngValue]="-1" [disabled]="true">-- Chọn --</option>
+                        <option [ngValue]="scoring.id" *ngFor="let scoring of scoringList">{{scoring.type}}</option>
+                    </select>
+                </div>
+                <div class="question-id-group-block">
+                    <div class="seperate-block">
+                        <div class="question-input-text">Thời gian làm bài (giây)</div>
+                        <input class="question-input" type="number" formControlName="timelimit">
+                    </div>
+                </div>
+                <div class="question-id-group-block">
+                    <div class="seperate-block">
+                        <div class="question-input-text">Tình trạng</div>
+                        <select class="question-input select-box" type="text" formControlName="status" (click)="selectionChange()">
+                            <option [ngValue]="0" [disabled]="isEditQuestion ? true : false">Đang soạn thảo</option>
+                            <option [ngValue]="status.id" [disabled]="shouldDisableOption(status.id)" *ngFor="let status of availableStatusList" >{{status.text}}</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+
+            <div class="nav-func-container">
+                <div class="close-button button" (click)="closeSideNav(sidenav)">ĐÓNG</div>
+                <button class="add-update-button button" type="submit" (click)="submitForm(form)" *ngIf="isAddNewQuestion == true">THÊM MỚI</button>
+                <button class="add-update-button button" type="submit" (click)="submitForm(form)" *ngIf="isEditQuestion == true">CẬP NHẬP</button>
+            </div>
+        </mat-sidenav>
+    </mat-sidenav-container>
 </div>

@@ -41,30 +41,79 @@ app.get('/questionlist', (req, res) => {
   res.json(data.questionlist);
 });
 
+// app.get('/questionlist', (req, res) => {
+//   const page = parseInt(req.query.page) || 1;
+//   const pageSize = parseInt(req.query.pageSize) || 10;
+//   const startIndex = (page - 1) * pageSize;
+//   const endIndex = Math.min(startIndex + pageSize, Data.length);
+
+//   const paginatedQuestions = data.questionlist.slice(startIndex, endIndex);
+//   console.log(paginatedQuestions.length)
+//   res.json(paginatedQuestions);
+// });
+
 app.get('/grouplist', (req, res) => {
   res.json(data.grouplist);
 });
 
-
-app.put('/questionlist/:id', (req, res) => {
+app.post('/questionlist/add', (req, res) => {
+  const newQuestion = req.body;
+  const lastQuestion = data.questionlist[data.questionlist.length - 1];
   
-  const questionId = req.params.id;
+  const nextCode = lastQuestion ? lastQuestion.code + 1 : 1;
+  newQuestion.code = nextCode;
+  data.questionlist.push(newQuestion);
+  console.log(newQuestion)
+  // Respond with the added question
+  res.json(newQuestion);
+});
+
+app.put('/questionlist/:code', (req, res) => {
+  
+  const questionCode = req.params.code;
   const question = req.body;
 
-
   // Find the question with the given ID in your data
-  const questionToUpdate = data.questionlist.find(question => question.id === questionId);
+  const questionToUpdate = data.questionlist.find(question => question.code == questionCode);
 
+  console.log(questionToUpdate)
   if (!questionToUpdate) {
       return res.status(404).json({ error: "Question not found" });
   }
 
-  // Update the status of the question
-  questionToUpdate.status = question.newStatus;
-
-  // Assuming you want to send the updated question as the response
-  res.json(questionToUpdate);
+  
+  questionToUpdate.id = question.id;
+  questionToUpdate.group = question.group;
+  questionToUpdate.stringques = question.stringques;
+  questionToUpdate.timelimit = question.timelimit;
+  questionToUpdate.type = question.type;
+  questionToUpdate.scoring = question.scoring;
+  questionToUpdate.status = question.status;
+  res.json('success');
 });
+
+app.put('/questionlist/updatelist/:newStatus', (req, res) => {
+  const newStatus = req.params.newStatus;
+  const questions = req.body;
+  // Find the question with the given ID in your data
+  questions.forEach(question => {
+    const questionToUpdate = data.questionlist.find(questiondb => questiondb.id === question.id);
+    questionToUpdate.status = newStatus;
+  });
+
+  res.json('success');
+});
+
+app.delete('/questionlist/delete', (req, res) =>{
+  const questionsToDelete = req.body
+  const questionIdsToDelete = questionsToDelete.map(question => question.id);
+  if(!questionsToDelete || questionsToDelete.length === 0){
+    return res.status(400).json({ error: "Invalid or missing question" });
+  }
+
+  data.questionlist = data.questionlist.filter(question => !questionIdsToDelete.includes(question.id));
+  res.json('success');
+})
 
 app.listen(PORT, () =>{
     console.log(`Server is running on port ${PORT}`)

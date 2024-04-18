@@ -96,285 +96,1163 @@
             "id": "Q.001",
             "code": 0,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 0,
             "group": 0,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 0
         },
         {
             "id": "Q.002",
             "code": 1,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 0,
             "group": 1,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 1
         },
         {
             "id": "Q.003",
             "code": 2,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có 1 tỷ mặt hàng đúng không?",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 0,
             "group": 2,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 2
         },
         {
             "id": "Q.004",
             "code": 3,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 0,
             "group": 1,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 3
         },
         {
             "id": "Q.005",
             "code": 4,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 0,
             "group": 0,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 4
         },
         {
             "id": "Q.006",
             "code": 5,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 0,
             "group": 2,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 0
         },
         {
             "id": "Q.007",
             "code": 6,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 0,
             "group": 1,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 1
         },
         {
             "id": "Q.008",
             "code": 7,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 0,
             "group": 0,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 2
         },
         {
             "id": "Q.009",
             "code": 8,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 2,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 3
         },
         {
             "id": "Q.010",
             "code": 9,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 1,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 4
         },
         {
             "id": "Q.011",
             "code": 10,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 0,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 0
         },
         {
             "id": "Q.012",
             "code": 11,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 2,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 1
         },
         {
             "id": "Q.013",
             "code": 12,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 1,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 2
         },
         {
             "id": "Q.014",
             "code": 13,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 0,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 3
         },
         {
             "id": "Q.015",
             "code": 14,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 2,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 4
         },
         {
             "id": "Q.016",
             "code": 15,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 1,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 0
         },
         {
             "id": "Q.017",
             "code": 16,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 0,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 1
         },
         {
             "id": "Q.018",
             "code": 17,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 2,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 2
         },
         {
             "id": "Q.019",
             "code": 18,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 1,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 3
         },
         {
             "id": "Q.020",
             "code": 19,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 0,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 4
         },
         {
             "id": "Q.021",
             "code": 20,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 2,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 0
         },
         {
             "id": "Q.022",
             "code": 21,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 1,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 1
         },
         {
             "id": "Q.023",
             "code": 22,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 0,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 2
         },
         {
             "id": "Q.024",
             "code": 23,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 2,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 3
         },
         {
             "id": "Q.025",
             "code": 24,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 1,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 4
         },
         {
             "id": "Q.026",
             "code": 25,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 0,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 0
         },
         {
             "id": "Q.027",
             "code": 26,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 1,
             "group": 2,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 1
         },
         {
             "id": "Q.028",
             "code": 27,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 0,
             "group": 1,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 2
         },
         {
             "id": "Q.029",
             "code": 28,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 0,
             "group": 0,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 3
         },
         {
             "id": "Q.030",
             "code": 29,
             "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào? Hiện nay có bao nhiêu cửa hàng? Có bao nhiêu mặt hàng",
-            "type": "Dạng một câu hỏi lựa chọn",
+            "type": 0,
             "group": 2,
             "timelimit": 30,
+            "scoring" : -1,
             "status": 4
-        }
+        },
+        {
+            "id": "Q.031",
+            "code": 30,
+            "stringques": "What is the capital of France?",
+            "type": 1,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.032",
+            "code": 31,
+            "stringques": "Who wrote 'To Kill a Mockingbird'?",
+            "type": 1,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.033",
+            "code": 32,
+            "stringques": "What is the symbol for the chemical element gold?",
+            "type": 1,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },{
+            "id": "Q.034",
+            "code": 33,
+            "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.035",
+            "code": 34,
+            "stringques": "Hiện nay Hệ thống cửa hàng Hachi Hachi có bao nhiêu cửa hàng?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.036",
+            "code": 35,
+            "stringques": "Hệ thống cửa hàng Hachi Hachi hiện đang bán bao nhiêu mặt hàng?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.037",
+            "code": 36,
+            "stringques": "Địa chỉ cửa hàng Hachi Hachi gần nhất là ở đâu?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.038",
+            "code": 37,
+            "stringques": "Hachi Hachi là thương hiệu nổi tiếng ở đâu?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.039",
+            "code": 38,
+            "stringques": "Hachi Hachi được biết đến với sản phẩm nào?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.040",
+            "code": 39,
+            "stringques": "Hachi Hachi được thành lập vào năm nào?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.041",
+            "code": 40,
+            "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt ở bao nhiêu tỉnh thành?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.042",
+            "code": 41,
+            "stringques": "Hachi Hachi phát triển mạnh ở lĩnh vực nào?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.043",
+            "code": 42,
+            "stringques": "Hệ thống cửa hàng Hachi Hachi nổi tiếng với dịch vụ gì?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.044",
+            "code": 43,
+            "stringques": "Hệ thống cửa hàng Hachi Hachi là điểm đến lý tưởng cho ai?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.045",
+            "code": 44,
+            "stringques": "Hachi Hachi mang lại cho khách hàng những trải nghiệm gì?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.046",
+            "code": 45,
+            "stringques": "Hachi Hachi tự hào với dịch vụ gì?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.047",
+            "code": 46,
+            "stringques": "Khách hàng thường đến Hachi Hachi để mua sản phẩm gì?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.048",
+            "code": 47,
+            "stringques": "Hachi Hachi đảm bảo cung cấp cho khách hàng điều gì?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.049",
+            "code": 48,
+            "stringques": "Hachi Hachi luôn chú trọng vào điều gì?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.050",
+            "code": 49,
+            "stringques": "Hachi Hachi thường tổ chức những sự kiện gì?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.051",
+            "code": 50,
+            "stringques": "Hachi Hachi nổi tiếng với các dịch vụ gì?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.052",
+            "code": 51,
+            "stringques": "Hachi Hachi được biết đến với sản phẩm nào?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.053",
+            "code": 52,
+            "stringques": "Hachi Hachi phát triển mạnh ở lĩnh vực nào?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.054",
+            "code": 53,
+            "stringques": "Hachi Hachi là thương hiệu nổi tiếng ở đâu?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.055",
+            "code": 54,
+            "stringques": "Hachi Hachi mang lại cho khách hàng những trải nghiệm gì?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.056",
+            "code": 55,
+            "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.057",
+            "code": 56,
+            "stringques": "Hệ thống cửa hàng Hachi Hachi hiện đang bán bao nhiêu mặt hàng?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.058",
+            "code": 57,
+            "stringques": "Hachi Hachi tự hào với dịch vụ gì?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.059",
+            "code": 58,
+            "stringques": "Hachi Hachi đảm bảo cung cấp cho khách hàng điều gì?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.060",
+            "code": 59,
+            "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt ở bao nhiêu tỉnh thành?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.061",
+            "code": 60,
+            "stringques": "Hachi Hachi là điểm đến lý tưởng cho ai?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.062",
+            "code": 61,
+            "stringques": "Khách hàng thường đến Hachi Hachi để mua sản phẩm gì?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.063",
+            "code": 62,
+            "stringques": "Hachi Hachi thường tổ chức những sự kiện gì?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.064",
+            "code": 63,
+            "stringques": "Hachi Hachi được biết đến với sản phẩm nào?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.065",
+            "code": 64,
+            "stringques": "Hachi Hachi phát triển mạnh ở lĩnh vực nào?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.066",
+            "code": 65,
+            "stringques": "Hachi Hachi là thương hiệu nổi tiếng ở đâu?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.067",
+            "code": 66,
+            "stringques": "Hachi Hachi mang lại cho khách hàng những trải nghiệm gì?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.068",
+            "code": 67,
+            "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt từ năm nào?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.069",
+            "code": 68,
+            "stringques": "Hệ thống cửa hàng Hachi Hachi hiện đang bán bao nhiêu mặt hàng?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.070",
+            "code": 69,
+            "stringques": "Hachi Hachi tự hào với dịch vụ gì?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.071",
+            "code": 70,
+            "stringques": "Hachi Hachi đảm bảo cung cấp cho khách hàng điều gì?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.072",
+            "code": 71,
+            "stringques": "Hệ thống cửa hàng Hachi Hachi có mặt ở bao nhiêu tỉnh thành?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.073",
+            "code": 72,
+            "stringques": "Hachi Hachi là điểm đến lý tưởng cho ai?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.074",
+            "code": 73,
+            "stringques": "Khách hàng thường đến Hachi Hachi để mua sản phẩm gì?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.075",
+            "code": 74,
+            "stringques": "Hachi Hachi thường tổ chức những sự kiện gì?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.076",
+            "code": 75,
+            "stringques": "Hachi Hachi được biết đến với sản phẩm nào?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.077",
+            "code": 76,
+            "stringques": "Hachi Hachi phát triển mạnh ở lĩnh vực nào?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.078",
+            "code": 77,
+            "stringques": "Hachi Hachi là thương hiệu nổi tiếng ở đâu?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },{
+            "id": "Q.079",
+            "code": 78,
+            "stringques": "Hachi Hachi nổi tiếng với loại thức uống nào?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.080",
+            "code": 79,
+            "stringques": "Hachi Hachi có dịch vụ giao hàng không?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.081",
+            "code": 80,
+            "stringques": "Hachi Hachi chú trọng vào yếu tố gì để thu hút khách hàng?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.082",
+            "code": 81,
+            "stringques": "Cửa hàng Hachi Hachi thường mở cửa vào thời gian nào?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.083",
+            "code": 82,
+            "stringques": "Hachi Hachi cung cấp sản phẩm cho đối tượng khách hàng nào?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.084",
+            "code": 83,
+            "stringques": "Hachi Hachi có chương trình khuyến mãi thường xuyên không?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },{
+            "id": "Q.085",
+            "code": 84,
+            "stringques": "Hachi Hachi có các chi nhánh ở nước ngoài không?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.086",
+            "code": 85,
+            "stringques": "Hachi Hachi có dịch vụ đặt hàng online không?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.087",
+            "code": 86,
+            "stringques": "Hachi Hachi thường tổ chức các sự kiện gì vào dịp lễ?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.088",
+            "code": 87,
+            "stringques": "Hachi Hachi là địa chỉ lý tưởng cho việc tổ chức sự kiện gì?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.089",
+            "code": 88,
+            "stringques": "Khách hàng thường đánh giá cao điều gì ở Hachi Hachi?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.090",
+            "code": 89,
+            "stringques": "Hachi Hachi thường tặng quà gì cho khách hàng thân thiết?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.091",
+            "code": 90,
+            "stringques": "Hachi Hachi có các chương trình ưu đãi dành cho học sinh - sinh viên không?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.092",
+            "code": 91,
+            "stringques": "Hachi Hachi nổi tiếng với món ăn nào nhất?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.093",
+            "code": 92,
+            "stringques": "Hachi Hachi có chính sách hoàn tiền không?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.094",
+            "code": 93,
+            "stringques": "Hachi Hachi thường mở cửa vào các ngày lễ không?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.095",
+            "code": 94,
+            "stringques": "Hachi Hachi có cung cấp dịch vụ giao hàng tận nơi không?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.096",
+            "code": 95,
+            "stringques": "Hachi Hachi có các chi nhánh ở nước ngoài không?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.097",
+            "code": 96,
+            "stringques": "Hachi Hachi tổ chức các sự kiện gì vào dịp Tết?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.098",
+            "code": 97,
+            "stringques": "Khách hàng thích gì nhất ở Hachi Hachi?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.099",
+            "code": 98,
+            "stringques": "Hachi Hachi có dịch vụ đặt bàn trước không?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.100",
+            "code": 99,
+            "stringques": "Hachi Hachi có cung cấp dịch vụ tư vấn mua hàng không?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.101",
+            "code": 100,
+            "stringques": "Hachi Hachi có đảm bảo an toàn thực phẩm không?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.102",
+            "code": 101,
+            "stringques": "Hachi Hachi thường tổ chức các sự kiện gì vào mùa hè?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.103",
+            "code": 102,
+            "stringques": "Hachi Hachi có các chi nhánh ở các trung tâm thương mại không?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.104",
+            "code": 103,
+            "stringques": "Hachi Hachi có chính sách đổi trả hàng không?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.105",
+            "code": 104,
+            "stringques": "Hachi Hachi có thực đơn đặc biệt cho ngày sinh nhật không?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.106",
+            "code": 105,
+            "stringques": "Hachi Hachi có chương trình khuyến mãi dành cho cặp đôi không?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.107",
+            "code": 106,
+            "stringques": "Hachi Hachi có các loại thức uống giảm cân không?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.108",
+            "code": 107,
+            "stringques": "Hachi Hachi có chương trình tặng quà dành cho khách hàng thường xuyên không?",
+            "type": 1,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.109",
+            "code": 108,
+            "stringques": "Hachi Hachi có cung cấp các loại thức uống không chứa đường không?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.110",
+            "code": 109,
+            "stringques": "Hachi Hachi có dịch vụ đặt tiệc không?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.111",
+            "code": 110,
+            "stringques": "Hachi Hachi có cung cấp dịch vụ cho thuê không gian không?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.112",
+            "code": 111,
+            "stringques": "Hachi Hachi có phục vụ các loại bánh ngọt không?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          },
+          {
+            "id": "Q.113",
+            "code": 112,
+            "stringques": "Hachi Hachi có cung cấp dịch vụ cho thuê không gian để tổ chức sự kiện không?",
+            "type": 0,
+            "group": 0,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 3
+          },
+          {
+            "id": "Q.114",
+            "code": 113,
+            "stringques": "Hachi Hachi có các loại thức uống phù hợp cho người lớn tuổi không?",
+            "type": 0,
+            "group": 2,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 4
+          },
+          {
+            "id": "Q.115",
+            "code": 114,
+            "stringques": "Hachi Hachi có cung cấp dịch vụ cho thuê không gian để tổ chức hội nghị không?",
+            "type": 0,
+            "group": 1,
+            "timelimit": 30,
+            "scoring": -1,
+            "status": 2
+          }
+
     ],
     "grouplist": [
         {
             "id": 0,
-            "name": "Thương hiệu văn hoá cty"
+            "name": "Thương hiệu"
         },
         {
             "id": 1,
-            "name": "Chất lượng sản phẩm"
+            "name": "Văn hoá công ty"
         },
         {
             "id": 2,
-            "name": "Chất lượng dịch vụ"
+            "name": "Quy định nội bộ"
         }
     ]
 }

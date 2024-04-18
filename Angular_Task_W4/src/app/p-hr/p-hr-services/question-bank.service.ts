@@ -33,8 +33,27 @@ export class QuestionBankService {
   getQuestionGroup() : void{
     this.http.get<QuestionGroup[]>(this.questiongroupURL).subscribe(data => this.questionsGroupSubject.next(data));
   }
+  
+  addQuestion(newQuestion: Question): void{
+    console.log(newQuestion)
+    this.http.post<Question>(`${this.questionlistURL}/add`, newQuestion, this.httpOptions).pipe(
+      tap((addedQuestion: Question) => {
+        console.log("Added new Question")
+        console.log(addedQuestion);
+        
+      }),
+      catchError(this.handleError<Question>('addQuestion'))
+    ).subscribe(question => this.getQuestionList());
+  }
 
-  updateQuestion(question: Question, newStatus : number): void{
+  updateQuestion(toUpdateQuestion: Question): void{
+    const url = `${this.questionlistURL}/${toUpdateQuestion.code}`
+    this.http.put<String>(url, toUpdateQuestion, this.httpOptions).pipe(  
+      catchError(this.handleError<String>('updateQuestion'))
+    ).subscribe(question => this.getQuestionList());
+  }
+
+  updateListQuestion(question: Question[], newStatus : number): Observable<String>{
     let updateMessage = "";
         switch(newStatus) {
           case 1:
@@ -46,16 +65,30 @@ export class QuestionBankService {
           case 4:
             updateMessage = "Trả về"; break;
         }
-    question.status = newStatus;
-    const url = `${this.questionlistURL}/${question.id}`
-    const updatedQuestion = {...question, newStatus};
-    this.http.put<Question>(url, updatedQuestion, this.httpOptions).pipe(  
-      tap(_ => console.log(updateMessage + ` question id=${question.id}`)),
-      catchError(this.handleError<Question>('updateQuestion'))
-    ).subscribe(updatedQuestion => {
-    });
-
+    const url = `${this.questionlistURL}/updatelist/${newStatus}`
+    return this.http.put<String>(url, question, this.httpOptions).pipe(  
+      tap(_ => console.log(updateMessage + ` questions =${question}`)),
+      catchError(this.handleError<String>('updateQuestion'))
+    )
   }
+
+  deleteQuestion(question: Question[]) : Observable<String>{
+    const url = `${this.questionlistURL}/delete`;
+    const options = {
+      headers: this.httpOptions.headers,
+      body: question // Send an object with an array of ids to delete
+    };
+    return this.http.delete<string>(url, options).pipe(
+      tap(_ => console.log(`Deleted ${question.length} question(s)`)),
+      catchError(this.handleError<string>('deleteQuestion'))
+    );
+    
+  }
+
+  // getPaginatedQuestionList(page: number, pageSize: number) {
+  //   const url = `${this.questionlistURL}?page=${page}&pageSize=${pageSize}`;
+  //   this.http.get<Question[]>(url).subscribe(data => this.questionsSubject.next(data));
+  // }
 
   private handleError<T>(operation = 'operation', result?: T){
     return (error: any): Observable<T> =>{

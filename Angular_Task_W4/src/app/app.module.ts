@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PHrComponent } from './p-hr/p-hr.component';
@@ -11,6 +11,9 @@ import { PHrQuestionBankComponent } from './p-hr/pages/p-hr-question-bank/p-hr-q
 import { HttpClientModule } from '@angular/common/http';
 import { StatusInfoPipe } from './p-hr/pages/p-hr-question-bank/p-hr-pipes/StatusInfoPipe';
 import { PBlankComponent } from './p-blank/p-blank.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,15 @@ import { PBlankComponent } from './p-blank/p-blank.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-left', // Set the position to bottom-left
+      closeButton: false, // Hide close button
+      timeOut: 2000, // Auto close after 2000ms
+    }),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
