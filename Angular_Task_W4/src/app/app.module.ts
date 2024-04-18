@@ -14,6 +14,7 @@ import { PBlankComponent } from './p-blank/p-blank.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     FormsModule,
     BrowserAnimationsModule,
     MatSidenavModule,
+    MatSelectModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-left', // Set the position to bottom-left
