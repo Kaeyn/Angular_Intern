@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { QuestionBankService } from '../../p-hr-services/question-bank.service';
 import { Router } from '@angular/router';
 import { Question } from '../../../app-model/Question';
@@ -13,14 +13,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrl: './p-hr-question-bank.component.scss'
 })
 export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
-  totalQuestion: Question[] = [];
   @Input() questionList: Question[] = [];
   filteredQuestionList: Question[] = [];
   questionGroup: QuestionGroup[] = [];
   questionCheckedList: Question[] = [];
   questionToDelete: Question[] = [];
   noneDisabledStatus: { id: number, text: string, ofStatus: number[] }[] = []
-  selectedQuestion: Question = new Question("", -1, "", -1, -1, -1, -1, -1);
+  selectedQuestion: Question = new Question();
 
   isLoading: boolean = false;
 
@@ -39,13 +38,15 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
   currentPage: number = 1;
   totalPages: number = 1;
 
+  selectedDate : string = new Date().toLocaleDateString('vi-VN');
+
   questionForm = new FormGroup({
     id: new FormControl('', Validators.required),
     code: new FormControl(0),
     stringques: new FormControl('', Validators.required),
     type: new FormControl(-1),
     group: new FormControl(-1),
-    timelimit: new FormControl(30),
+    timelimit: new FormControl(30, Validators.min(0)),
     scoring: new FormControl(-1),
     status: new FormControl(0),
 
@@ -138,9 +139,10 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
   ngOnChanges(changes: SimpleChanges): void {
 
   }
-
+  @HostListener("window:beforeunload")
   ngOnDestroy(): void {
     // Convert the statusList to a JSON string
+    console.log('yes')
     const statusListJSON = JSON.stringify(this.statusList);
     sessionStorage.setItem('statusList', statusListJSON);
   }
@@ -164,11 +166,10 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
       timelimit: 30,
       scoring: -1,
       status: 0,
-
     }
     this.questionForm.setValue(defaultForm)
-    this.questionForm.get('type')?.disable();
-    this.questionForm.get('scoring')?.disable();
+    this.questionForm.get('type')?.disable({ onlySelf: true, emitEvent: false });
+    this.questionForm.get('scoring')?.disable({ onlySelf: true, emitEvent: false });
     sidenav.open()
   }
 
@@ -178,15 +179,21 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
     this.getNoneDisableStatus(curStatus);
 
     if (this.questionForm.get('group')?.value == -1) {
-      this.questionForm.get('type')?.disable();
+      this.questionForm.get('type')?.disable({ onlySelf: true, emitEvent: false });
+      this.questionForm.get('type')?.setValue(-1);
     } else {
-      this.questionForm.get('type')?.enable();
+      this.questionForm.get('type')?.enable({ onlySelf: true, emitEvent: false });
     }
-    if (this.questionForm.get('type')?.value == -1 || this.questionForm.get('type')?.value == 0) {
-      this.questionForm.get('scoring')?.disable();
-
+    if (this.questionForm.get('type')?.value == -1) {
+      this.questionForm.get('scoring')?.disable({ onlySelf: true, emitEvent: false });
+      this.questionForm.get('scoring')?.setValue(-1);
     } else {
-      this.questionForm.get('scoring')?.enable();
+      console.log(this.questionForm.get('type')?.value)
+      if(this.questionForm.get('type')?.value == 0){
+        this.questionForm.get('scoring')?.enable({ onlySelf: true, emitEvent: false });
+      }else{
+        this.questionForm.get('scoring')?.disable({ onlySelf: true, emitEvent: false });
+      }
     }
   }
 
@@ -214,6 +221,7 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
   // Hàm thêm câu hỏi nếu như được submit / validate
   onSubmit(sidenav: MatSidenav) {
     if (this.isAddNewQuestion) {
+      console.log(this.questionForm.value)
       const newQuestion = this.questionForm.value as Question;
       if (newQuestion.status != 0) {
         if (newQuestion.group == -1 || newQuestion.type == -1 || newQuestion.scoring == -1 || newQuestion.timelimit <= 0) {
@@ -222,6 +230,7 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
         }
       }
       sidenav.close();
+      console.log(newQuestion)
       this.questionService.addQuestion(newQuestion);
       this.showStyledToast("Đã thêm mới câu hỏi với mã là: " + this.questionForm.get('id')?.value, true)
     } else if (this.isEditQuestion) {
@@ -253,6 +262,7 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
     this.isEditQuestion = false;
     this.isAddNewQuestion = false;
     this.isSeeDetailQuestion = false
+    console.log(this.selectedDate);
     this.questionForm.enable();
     sidenav.close();
   }
@@ -272,6 +282,7 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
     this.searchTerms = '';
     this.statusList.forEach(item => item.id == 0 ? item.checked = true : item.checked = false);
     this.filterData();
+    this.goToPage(1);
   }
 
   // Format chuỗi được nhập để search không cần dấu
@@ -322,7 +333,7 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
     }
 
 
-
+    
     setTimeout(() => {
       this.isLoading = false;
       this.filteredQuestionList = filterBySearch;
@@ -330,6 +341,7 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
       this.pageList = this.getPageNumbers();
       this.getPaginatedQuestions();
       this.catchAllCheckboxChecked();
+      if(this.filteredQuestionList.length <= 0) this.goToPage(this.currentPage - 1);
     }, 200);
   }
 
@@ -346,6 +358,7 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
 
   // Hàm check tất cả checkbox
   handleCheckAllCheckbox(): void {
+
     if (this.parentCheckBoxChecked == false) {
       this.parentCheckBoxChecked = true;
       this.filteredQuestionList.forEach(question => {
@@ -356,8 +369,7 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
       this.getMultiToolTipFunction();
     } else {
       this.parentCheckBoxChecked = false;
-      this.questionCheckedList = [];
-
+      this.questionCheckedList = this.questionCheckedList.filter(question => !this.filteredQuestionList.includes(question));
     }
 
     this.catchAllCheckboxChecked()
@@ -436,6 +448,7 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
 
   // Chức năng chỉnh sửa item
   editItem(question: Question, sidenav: MatSidenav) {
+    console.log(question)
     this.isEditQuestion = true;
     this.selectedQuestion = question;
     this.questionForm.setValue(question)
@@ -559,7 +572,7 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
         successItems.push(question)
       }
     });
-    this.questionService.updateListQuestion(successItems, 1).subscribe(status => {
+    this.questionService.updateListQuestion(successItems, 2).subscribe(status => {
       if (status == 'success') {
         const updatedQuestionIds = successItems.map(question => question.id);
         successItems.forEach(successitem => {
@@ -587,7 +600,7 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
         successItems.push(question)
       }
     });
-    this.questionService.updateListQuestion(successItems, 1).subscribe(status => {
+    this.questionService.updateListQuestion(successItems, 3).subscribe(status => {
       if (status == 'success') {
         const updatedQuestionIds = successItems.map(question => question.id);
         successItems.forEach(successitem => {
@@ -615,7 +628,7 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
         successItems.push(question)
       }
     });
-    this.questionService.updateListQuestion(successItems, 1).subscribe(status => {
+    this.questionService.updateListQuestion(successItems, 4).subscribe(status => {
       if (status == 'success') {
         const updatedQuestionIds = successItems.map(question => question.id);
         successItems.forEach(successitem => {
@@ -638,17 +651,7 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
         this.questionToDelete.push(question);
       }
     });
-    this.questionService.deleteQuestion(this.questionToDelete).subscribe(status => {
-      if (status == 'success') {
-        const deletedQuestionIds = this.questionToDelete.map(question => question.id);
-        this.questionList = this.filteredQuestionList.filter(question => !this.questionToDelete.includes(question));
-        this.showConfirmPopup = false;
-        this.questionToDelete = [];
-        this.handleCloseMultiTool();
-        this.filterData();
-        this.showStyledToast("Xoá thành công ! Câu hỏi: " + deletedQuestionIds.join(', '), true)
-      }
-    })
+    this.showConfirmPopup = true;
   }
 
   // Xử lí chức năng dựa trên chức năng cửa tooltip được chọn
@@ -702,6 +705,7 @@ export class PHrQuestionBankComponent implements OnChanges, OnInit, OnDestroy {
         this.questionList = this.filteredQuestionList.filter(question => !this.questionToDelete.includes(question));
         this.showConfirmPopup = false;
         this.questionToDelete = [];
+        this.questionCheckedList = [];
         this.filterData();
         this.showStyledToast("Xoá thành công ! Câu hỏi: " + deletedQuestionIds.join(', '), true)
       }

@@ -477,9 +477,9 @@
                         height: 100%;
                     }
                 }
-
+                //Note
                 & .datalist {
-                    width: 1681px;
+                    width: 1681px; //1681
                     height: calc(100% - 50px);
                     overflow-y: auto;
                     overflow-x: hidden;
@@ -493,7 +493,9 @@
                         grid-template-columns: 3% 46% 16% 16% 16% 3%;
                         background-color: #FFFFFF;
                         font-size: 14px;
-                        margin-bottom: 8px;
+                        margin-bottom: 8px;    
+                        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+          
 
                         &.active {
                             background-color: rgba(26, 102, 52, 0.7);
@@ -508,8 +510,6 @@
 
                             & .status-checkbox {
                                 display: none;
-
-
                             }
 
                             & .status-checkbox-label {
@@ -531,7 +531,7 @@
                             & .status-checkbox-label:before {
                                 content: '\2714';
                                 display: block;
-                                width: 12px;
+                                width: 13px;
                                 height: 17px;
                                 background-color: #008000;
                                 color: white;
@@ -541,7 +541,7 @@
                                 left: -1px;
                                 line-height: 17px;
                                 font-size: 11px;
-                                padding-left: 5px;
+                                padding-left: 4px;
                                 transform: scale(0);
                             }
 
@@ -640,6 +640,7 @@
                                 width: 50%;
                                 align-items: center;
                                 justify-content: center;
+                                text-align: center;
                                 border-radius: 3px;
                                 cursor: pointer;
 
@@ -651,6 +652,16 @@
                                     background-color: #BDC2D2;
                                     border-bottom-left-radius: 0px;
                                     border-top-left-radius: 0px;
+                                }
+
+                                &.disable{
+                                    pointer-events: none;
+                                }
+
+                                & .tooltip-text{
+                                    display: flex;
+                                    height: 100%;
+                                    justify-content: center;
                                 }
                             }
 
@@ -722,6 +733,27 @@
                                     }
                                 }
 
+                            }
+
+                            &.delete{
+
+                                color: #FD7676;
+                                & .func-block {
+                                    & .func-icon {
+                                        color: #FD7676;
+                                    }
+                                }
+                                &:hover{
+                                    background-color: #FD7676;
+                                    color: white;
+                                    
+                                    & .func-block {
+                                        & .func-icon {
+                                            color: white;
+                                        }
+                                    }
+                                }
+                                
                             }
 
                             & .func-block {
@@ -909,6 +941,11 @@
                             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
                         }
 
+                        &:hover {
+                            background-color: #959DB3;
+                            color: white;
+                        }
+
                     }
 
                     & .number-button {
@@ -945,6 +982,11 @@
                             pointer-events: all;
                             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
+                        }
+
+                        &:hover {
+                            background-color: #959DB3;
+                            color: white;
                         }
                     }
                 }
@@ -1139,6 +1181,7 @@
                 overflow-y: auto;
                 overflow-x: none;
                 
+                
                 & .question-input-dropdown-block{
                     display: flex;
                     flex-direction: column;
@@ -1163,7 +1206,17 @@
                         border-radius: 3px;
                         padding-left: 10px;
                         padding-right: 10px;
-                        
+                        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+
+                        & .nav-form-container:not(.disable) .question-input:hover {
+                            border-color: #008000;
+                        }
+
+                        &:focus{
+                            border-color: #008000;
+                        }
+
                         &.select-box{
                             width: 100%;
 
@@ -1210,6 +1263,15 @@
                             border-radius: 3px;
                             padding-left: 10px;
                             padding-right: 10px;
+                            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+
+                            & .nav-form-container:not(.disable) .question-input:hover {
+                            border-color: #008000;
+                        }
+                            &:focus{
+                                border-color: #008000;
+                            }
 
                             &.select-box{
                                 width: 100%;
@@ -1254,8 +1316,13 @@
 
                 & .close-button{
                     color: #1A6634;
-                    background: #FFFFFF;
+                    background-color: #FFFFFF;
                     margin-left: 20px;
+
+                    &:hover{
+                        background-color: #008000;
+                        color: white;
+                    }
                 }
 
                 & .add-update-button{
@@ -1263,6 +1330,12 @@
                     width: 94px;
                     height: 37px;
                     border: none;
+                    font-weight: 700;
+
+                    &:hover{
+                        background-color: #008000;
+                        color: white;
+                    }
                 }
             }
         }

@@ -1,0 +1,18 @@
+<div class="date-picker-container">
+    <div class="date-picker-button">
+        <div class="date-icon-block" (click)="handleCalendarOpen()"><i class="fa-regular fa-calendar date-icon"></i></div>
+        <input class="date-text" type="date" #dateInput [ngModel]="currentDateInputFormat" (ngModelChange)="handleChange(dateInput.value)" (blur)="onBlurInput($event)" (focus)="onFocusInput()">
+    </div>
+    <div class="calender-container" *ngIf="isOpen == true">
+        <div class="date-year-func-block">
+            <div class="date-year-text">{{formatMonth(month) +", " + year}}</div>
+            <div class="func-block">
+                <div class="prev-month func-button" (click)="prevMonth()"><i class="fa-solid fa-chevron-left func-icon"></i></div>
+                <div class="next-month func-button" (click)="nextMonth()"><i class="fa-solid fa-chevron-right func-icon"></i></div>
+            </div>
+        </div>
+        <div class="date-container">
+                <div class="date-block" *ngFor="let mapDay of dayList" [ngClass]="{'disable' : isDisabledDay(mapDay),'hidden': mapDay == -1, 'active': isSelectedDay(mapDay), 'today': isToday(mapDay)}" (click)="selectDay(mapDay)">{{mapDay}}</div>             
+        </div>
+    </div>
+</div>

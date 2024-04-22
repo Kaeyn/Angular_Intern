@@ -15,6 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSelectModule} from '@angular/material/select';
+import { PHrDatePickerComponent } from './p-hr/pages/p-hr-date-picker/p-hr-date-picker.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {MatSelectModule} from '@angular/material/select';
     PHrCompetenceBankComponent,
     PHrQuestionBankComponent,
     StatusInfoPipe,
-    PBlankComponent
+    PBlankComponent,
+    PHrDatePickerComponent
   ],
   imports: [
     BrowserModule,

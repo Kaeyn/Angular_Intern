@@ -1,0 +1,142 @@
+.date-picker-container{
+    position: relative;
+    width: 115px;
+
+    .date-picker-button{
+        display: flex;
+        width: 115px;
+        height: 30px;
+        border-radius: 3px;
+        background-color: #36C8CF;
+        color: white;
+        align-items: center;
+        
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        
+        & .date-icon-block{
+            display: flex;
+            height: 100%;
+            width: 30px;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            & .date-icon{
+                font-size: 14px;
+            }
+        }
+
+        & .date-text{
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            font-size: 13px;
+            outline: none;
+            width: calc(100% - 30px);
+            
+            background-color: transparent;
+            border: 1px solid transparent;
+            color: white;
+            font-family: 'Mulish' !important;
+
+            &::-webkit-calendar-picker-indicator {
+                display: none; /* Hide the calendar dropdown button in Chrome/Edge */
+            }
+            
+            &::-webkit-inner-spin-button {
+                display: none; /* Hide the increment/decrement arrows in Chrome/Edge */
+            }
+        }
+    }
+
+    .calender-container{
+        position: absolute;
+        width: 290px;
+        height: 293px;
+        background-color: #FFFFFF;
+        padding: 10px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+        & .date-year-func-block{
+            display: flex;
+            height: 50px;         
+            justify-content: space-between;
+            align-items: center;
+
+            & .date-year-text{
+                color: #5A6276;
+                font-size: 13px;
+                font-weight: 700;
+                padding-left: 10px;
+            }
+
+            & .func-block{
+                display: flex;
+                padding-right: 5px;
+                gap: 0.3rem;
+
+                & .func-button{
+                    display: flex;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 20px;                   
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+
+                    & .func-icon{
+                        font-size: 14px;
+                    }
+
+                    &:hover{
+                        background-color: #F5F6F8;
+                    }
+
+                }
+            }
+        }
+
+        & .date-container{
+            display: flex;
+            flex-wrap: wrap;
+            height: calc(100% - 50px);
+            gap: 0.46rem;         
+
+            & .date-block{
+                display: flex;
+                width: 33px;
+                height: 33px;
+                border-radius: 20px;
+                align-items: center;
+                justify-content: center;
+                font-size: 13px;
+                border: 1px solid transparent;
+                cursor: pointer;
+
+                
+                &.today{
+                    background-color: #F5F6F8;
+                }
+
+                &.active{
+                    background-color: #36C8CF;
+                    color: white;
+                }
+
+                &.disable{
+                    color: #dddddd;
+                    pointer-events: none;
+                }
+
+                &:hover{
+                    border-color: #36C8CF;
+                }
+                
+                &.hidden{
+                    visibility: hidden;
+                }
+
+                
+            }
+        }
+    }
+}

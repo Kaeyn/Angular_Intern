@@ -5,7 +5,7 @@
                 [ngClass]="{'disable' : questionCheckedList.length > 0 || showConfirmPopup == true}"
                 (click)="handleCloseToolTip()">
                 <div class="status_filter-container">
-                    <div class="status-block" *ngFor="let status of statusList" (click)="toggleCheckbox(status)"
+                    <div class="status-block" *ngFor="let status of statusList" (click)="toggleCheckbox(status)" title="{{status.name}}"
                         [ngClass]="{'active' : status.checked === true, 'hidden' : status.id == 4}">
                         <div class="status-text">{{status.name}}</div>
                         <div class="status-checkbox-block">
@@ -16,18 +16,18 @@
                     </div>
                 </div>
                 <div class="func-container">
-                    <div class="func-block">
+                    <div class="func-block"  title="Import">
                         <div class="func-icon-block">
                             <i class="fa-solid fa-upload"></i>
                         </div>
                     </div>
-                    <div class="func-block">
+                    <div class="func-block"  title="Export">
                         <div class="func-icon-block">
                             <i class="fa-solid fa-download"></i>
                         </div>
                         <div class="func-text">Template</div>
                     </div>
-                    <div class="func-block addnew-block" (click)="addNewQuestion(sidenav)">
+                    <div class="func-block addnew-block" (click)="addNewQuestion(sidenav)" title="THÊM MỚI">
                         <div class="func-icon-block">
                             <i class="fa-solid fa-plus"></i>
                         </div>
@@ -79,7 +79,7 @@
                 <div class="data-category" (click)="handleCloseToolTip()">
                     <div class="checkbox-block">
                         <input type="checkbox" name="" id="checkboxparent" class="status-checkbox"
-                            [checked]="parentCheckBoxChecked" (change)="handleCheckAllCheckbox()">
+                            [checked]="parentCheckBoxChecked" (change)="handleCheckAllCheckbox()" title="Chọn tất cả">
                         <label for='checkboxparent' class="status-checkbox-label"></label>
                     </div>
                     <div class="question-block">
@@ -109,27 +109,29 @@
                         </div>
                         <div class="question-block" (click)="handleCloseToolTip()">
                             <div class="question-text-block">
-                                <div class="question-text">{{question.stringques}}</div>
+                                <div class="question-text" title="{{question.stringques}}">{{question.stringques}}</div>
                             </div>
                             <div class="id-type-question-block">
-                                <div class="id-question">{{question.id}}</div>
-                                <div class="seperate-bar"></div>
-                                <div class="type-question">Loại câu hỏi: {{formatTypeQuestion(question.type)}}</div>
+                                <div class="id-question" title="{{question.id}}">{{question.id}}</div>
+                                <div class="seperate-bar" *ngIf="(question.id.length > 0 || question.type != 0)"></div>
+                                <div class="type-question" title="{{formatTypeQuestion(question.type)}}">Loại câu hỏi: {{formatTypeQuestion(question.type)}}</div>
                             </div>
                         </div>
                         <div class="group-block" (click)="handleCloseToolTip()">
-                            <div class="group-text">{{formatGroupName(question.group)}}</div>
+                            <div class="group-text" title="{{formatGroupName(question.group)}}">{{formatGroupName(question.group)}}</div>
                         </div>
                         <div class="timelimit-block" (click)="handleCloseToolTip()">
-                            <div>{{question.timelimit}}s</div>
+                            <div title="{{question.timelimit}}s">{{question.timelimit}}s</div>
                         </div>
                         <div class="status-block" (click)="handleCloseToolTip()">
-                            <div class="status-text" [ngStyle]="{'color' : (question.status | statusInfo).color}">
+                            <div class="status-text" [ngStyle]="{'color' : (question.status | statusInfo).color}" title="{{question.status}}">
                                 {{(question.status | statusInfo).name}}</div>
                         </div>
                         <div class="tooltip-button-block">
-                            <div class="tooltip-button" [ngClass]="{'active' : question.code === showQuestionToolTip}"
-                                (click)="showToolTip(question)">...</div>
+                            <div class="tooltip-button" [ngClass]="{'active' : question.code === showQuestionToolTip,'disable' : questionCheckedList.length > 0}"
+                                (click)="showToolTip(question)">
+                                <div class="tooltip-text">...</div>
+                            </div>
                             <div class="tooltip-list" *ngIf="question.code === showQuestionToolTip">
                                 <div class="tooltip-item" *ngFor="let func of toolTipFunc"
                                     (click)="handleAction(func.id, question,sidenav)">
@@ -145,7 +147,7 @@
                             <div class="checked-text">Đã chọn</div>
                         </div>
                         <div class="multi-tool-block" *ngFor="let func of multiToolTipFunc"
-                            (click)="handleMultiToolAction(func.id)">
+                            (click)="handleMultiToolAction(func.id)" [ngClass]="{'delete' : func.id == 6}">
                             <div class="func-block">
                                 <div class="func-icon">
                                     <i class="{{func.icon}}"></i>
@@ -230,26 +232,26 @@
                 </div>
             </div>
         </mat-sidenav-content>
-        <mat-sidenav class="side-nav" #sidenav mode="over" position="end" [disableClose]="true">
+        <mat-sidenav class="side-nav" #sidenav mode="over" [opened]="true" position="end" [disableClose]="true">
             <div class="nav-title-container">
                 <div class="nav-title-icon-block"><i class="fa-solid fa-diagram-project nav-title-icon"></i></div>
                 <div class="nav-title-text">NGÂN HÀNG CÂU HỎI</div>
             </div> 
 
-            <form class="nav-form-container" [formGroup] = "questionForm" (ngSubmit)="onSubmit(sidenav)" #form>
+            <form class="nav-form-container" [formGroup] = "questionForm" (ngSubmit)="onSubmit(sidenav)" #form [ngClass]="{'disable' : questionForm.disabled}">
                 <div class="question-input-dropdown-block">
                     <div class="question-input-text">Tên câu hỏi</div>
-                    <input class="question-input" type="text" formControlName="stringques" [autofocus]="true">
+                    <input class="question-input" type="text" formControlName="stringques" [autofocus]="true" #questionName [title]="questionName.value">
                 </div>
                 <div class="question-id-group-block">
                     <div class="seperate-block">
                         <div class="question-input-text">Mã câu hỏi</div>
-                        <input class="question-input" type="text" formControlName="id">
+                        <input class="question-input" type="text" formControlName="id" #questionId [title]="questionId.value">
                     </div>
                     <div class="seperate-block">
                         <div class="question-input-text">Phân nhóm</div>
-                        <select class="question-input select-box" type="text" formControlName="group" (change)="selectionChange()">
-                            <option [ngValue]="-1" [disabled]="true">-- Chọn --</option>
+                        <select class="question-input select-box" type="text" formControlName="group" (change)="selectionChange()" #groupSelect [title]="groupSelect.options[groupSelect.selectedIndex].text">
+                            <option [ngValue]="-1">-- Chọn --</option>
                             <option  [ngValue]="group.id" *ngFor="let group of questionGroup">{{group.name}}</option>
                         </select>
                     </div>
@@ -257,33 +259,39 @@
                 </div>
                 <div class="question-input-dropdown-block">
                     <div class="question-input-text">Loại câu hỏi</div>
-                    <select class="question-input select-box" type="text" formControlName="type" (change)="selectionChange()">
-                        <option [ngValue]="-1" [disabled]="true">-- Chọn --</option>
+                    <select class="question-input select-box" type="text" formControlName="type" (change)="selectionChange()" #questionTypeSelect [title]="questionTypeSelect.options[questionTypeSelect.selectedIndex].text">
+                        <option [ngValue]="-1">-- Chọn --</option>
                         <option [ngValue]="type.id" *ngFor="let type of questionType">{{type.type}}</option>
                     </select>
                 </div>
                 <div class="question-input-dropdown-block">
                     <div class="question-input-text">Cách tính điểm </div>
-                    <select class="question-input select-box" type="text" formControlName="scoring">
-                        <option [ngValue]="-1" [disabled]="true">-- Chọn --</option>
+                    <select class="question-input select-box" type="text" formControlName="scoring" #scoringSelect [title]="scoringSelect.options[scoringSelect.selectedIndex].text">
+                        <option [ngValue]="-1">-- Chọn --</option>
                         <option [ngValue]="scoring.id" *ngFor="let scoring of scoringList">{{scoring.type}}</option>
                     </select>
                 </div>
                 <div class="question-id-group-block">
                     <div class="seperate-block">
                         <div class="question-input-text">Thời gian làm bài (giây)</div>
-                        <input class="question-input" type="number" formControlName="timelimit">
+                        <input class="question-input" type="number" formControlName="timelimit" #timeLimitInput [title]="timeLimitInput.value">
                     </div>
                 </div>
                 <div class="question-id-group-block">
                     <div class="seperate-block">
                         <div class="question-input-text">Tình trạng</div>
-                        <select class="question-input select-box" type="text" formControlName="status" (click)="selectionChange()">
+                        <select class="question-input select-box" type="text" formControlName="status" (click)="selectionChange()" #statusSelect [title]="statusSelect.options[statusSelect.selectedIndex].text">
                             <option [ngValue]="0" [disabled]="isEditQuestion ? true : false">Đang soạn thảo</option>
-                            <option [ngValue]="status.id" [disabled]="shouldDisableOption(status.id)" *ngFor="let status of availableStatusList" >{{status.text}}</option>
+                            <option [ngValue]="status.id" [disabled]="isAddNewQuestion ? true : false || shouldDisableOption(status.id)" *ngFor="let status of availableStatusList" >{{status.text}}</option>
                         </select>
                     </div>
                 </div>
+                <div class="question-id-group-block">
+                    <div class="seperate-block">
+                    <app-p-hr-date-picker [(ngModel)]="selectedDate"></app-p-hr-date-picker>
+                    </div>
+                </div>
+                
             </form>
 
             <div class="nav-func-container">
